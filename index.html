@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Bluebonnet Condo Naga — gated self check-in condo at Residencia Magayon. Pool, Netflix, full kitchen. Book on Airbnb."/>
+  <meta property="og:title" content="Bluebonnet Condo Naga"/>
+  <meta property="og:description" content="We share the beauty of Bluebonnet with you. A gated condo in Naga City."/>
+  <meta property="og:type" content="website"/>
+  <title>Bluebonnet Condo Naga — Home Away From Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- COOKIE BANNER -->
+  <div class="cookie" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+    <div class="cookie-in">
+      <p>We use cookies to improve your experience. See our <a href="privacy.html">Privacy Policy</a>.</p>
+      <div class="cookie-acts">
+        <button class="ck-no" id="ckDecline">Decline</button>
+        <button class="ck-yes" id="ckAccept">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header class="nav" id="siteNav">
+    <div class="wrap nav-in">
+      <a href="#top" class="brand">
+        <svg viewBox="0 0 26 26" fill="none" aria-hidden="true">
+          <circle cx="13" cy="13" r="12" fill="#5B3FA6" opacity=".15"/>
+          <path d="M13 3C9.5 3 7 6 7 9.5c0 4.5 6 11.5 6 11.5S19 14 19 9.5C19 6 16.5 3 13 3z" fill="#5B3FA6"/>
+          <circle cx="13" cy="9.5" r="2.5" fill="white"/>
+        </svg>
+        <span>Bluebonnet <em>Naga</em></span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#video">Video</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#location">Location</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-gold btn-sm" href="https://www.airbnb.com/rooms/1572517148366114947" target="_blank" rel="noopener">Book on Airbnb</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ══════════════════════════════════════
+         HERO — PHOTO STRIP
+         Photos pulled from Airbnb listing.
+         To use your own: add to images/ folder
+         and update PHOTOS in script.js
+    ══════════════════════════════════════ -->
+    <section class="hero">
+      <div class="photo-strip" id="photoStrip">
+        <div class="cell" data-index="0"><div class="cell-empty"><span>🛏️</span><small>Bedroom</small></div></div>
+        <div class="cell" data-index="1"><div class="cell-empty"><span>📺</span><small>Living room</small></div></div>
+        <div class="cell" data-index="2"><div class="cell-empty"><span>🍳</span><small>Kitchen</small></div></div>
+        <div class="cell" data-index="3"><div class="cell-empty"><span>🏊</span><small>Pool</small></div></div>
+        <button class="show-all" id="showAllBtn">
+          <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
+          Show all photos
+        </button>
+      </div>
+
+      <div class="hero-body">
+        <div class="wrap hero-grid">
+          <div class="hero-text">
+            <div class="hero-loc">
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 1.5A4.5 4.5 0 0 1 12.5 6c0 3-4.5 8.5-4.5 8.5S3.5 9 3.5 6A4.5 4.5 0 0 1 8 1.5z" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="6" r="1.5" fill="currentColor"/></svg>
+              Residencia Magayon, Naga City, Camarines Sur
+            </div>
+            <h1>We share the beauty of Bluebonnet with you.</h1>
+            <p class="hero-sub">A gated self check-in condo with pool, Netflix, full kitchen, and every comfort of home — steps from SM Naga and the Cathedral.</p>
+            <div class="badges">
+              <span class="badge badge-gold">★ 5.0 · Guest Favorite</span>
+              <span class="badge badge-white">Up to 4 guests</span>
+              <span class="badge badge-white">Self check-in</span>
+              <span class="badge badge-white">Free parking</span>
+            </div>
+
+            <!-- ══ FACTS STRIP ══════════════════════════════
+                 EDIT: change the values below to real numbers
+            ═════════════════════════════════════════════════ -->
+            <div class="facts-strip">
+              <div class="fact-item">
+                <strong>₱X,XXX</strong><!-- ← REPLACE: starting price per night e.g. ₱2,500 -->
+                <span>per night</span>
+              </div>
+              <div class="fact-divider"></div>
+              <div class="fact-item">
+                <strong>XX sqm</strong><!-- ← REPLACE: unit size e.g. 32 sqm -->
+                <span>unit size</span>
+              </div>
+              <div class="fact-divider"></div>
+              <div class="fact-item">
+                <strong>Floor X</strong><!-- ← REPLACE: floor number e.g. Floor 3 -->
+                <span>of building</span>
+              </div>
+              <div class="fact-divider"></div>
+              <div class="fact-item">
+                <strong>~XX min</strong><!-- ← REPLACE: drive to airport e.g. ~15 min -->
+                <span>to airport</span>
+              </div>
+            </div>
+          </div>
+          <div class="book-card">
+            <p class="book-label">Book securely on</p>
+            <a class="btn btn-dark btn-full" href="https://www.airbnb.com/rooms/1572517148366114947" target="_blank" rel="noopener">Book on Airbnb</a>
+            <div class="book-stats">
+              <div class="bstat"><strong>5.0★</strong><span>Rating</span></div>
+              <div class="bstat"><strong>XX+</strong><span>Reviews</span></div><!-- ← REPLACE XX with total reviews -->
+              <div class="bstat"><strong>100%</strong><span>Response</span></div>
+              <div class="bstat"><strong>4</strong><span>Guests max</span></div>
+            </div>
+            <p class="book-note">Payments handled securely by Airbnb. AirCover guest guarantee included.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="wrap about-grid">
+        <div class="about-text">
+          <h2>Your home away from home</h2>
+
+          <!-- ══ UNIT FACTS ═══════════════════════════════════
+               EDIT: replace each value with your real info
+          ═══════════════════════════════════════════════════ -->
+          <div class="unit-facts">
+            <div class="uf-item"><span class="uf-val">XX sqm</span><span class="uf-label">Unit size</span></div><!-- ← REPLACE -->
+            <div class="uf-item"><span class="uf-val">Floor X</span><span class="uf-label">Building floor</span></div><!-- ← REPLACE -->
+            <div class="uf-item"><span class="uf-val">~XX min</span><span class="uf-label">To Naga Airport</span></div><!-- ← REPLACE -->
+            <div class="uf-item"><span class="uf-val">20XX</span><span class="uf-label">Building opened</span></div><!-- ← REPLACE or delete this item -->
+          </div>
+
+          <p>Welcome to a pretty, gated condo close to shopping areas, malls, restaurants, and every convenience you need for a great stay in Naga. Dip in the pool, jog in the morning, then come back for a warm shower and hot coffee.</p>
+          <p>Netflix is on the TV — or enjoy the crisp breeze from the balcony. We've stocked everything from kitchen cookware to board games so you can arrive with just your bags.</p>
+          <div class="about-feats">
+            <div class="feat"><span>🔑</span><div><strong>Self check-in</strong><small>Smartlock — arrive any time</small></div></div>
+            <div class="feat"><span>🛡️</span><div><strong>Gated &amp; secure</strong><small>24/7 security &amp; lobby guard</small></div></div>
+            <div class="feat"><span>🏊</span><div><strong>Shared pool</strong><small>Open to all guests</small></div></div>
+            <div class="feat"><span>🅿️</span><div><strong>Guest parking</strong><small>Complimentary on-site</small></div></div>
+          </div>
+          <div class="host-card">
+            <div class="host-av">S</div>
+            <div>
+              <p class="host-name">Hosted by Salvacion</p>
+              <p class="host-meta">Responds within an hour · 100% response rate · 8 months hosting</p>
+            </div>
+          </div>
+        </div>
+        <div class="about-photos">
+          <!-- ══ Add src="images/living-room.jpg" ══ -->
+          <div class="about-main cell" data-index="1"><div class="cell-empty"><span>🛋️</span><small>Living room</small></div></div>
+          <!-- ══ Add src="images/balcony.jpg" ══ -->
+          <div class="about-side cell" data-index="5"><div class="cell-empty"><span>🌿</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section section-dark" id="gallery">
+      <div class="wrap">
+        <h2>A peek inside</h2>
+        <div class="gallery-grid" id="galleryGrid">
+          <div class="g-cell big cell" data-index="0"><div class="cell-empty"><span>🛏️</span><small>Bedroom</small></div></div>
+          <div class="g-cell cell" data-index="1"><div class="cell-empty"><span>📺</span><small>Living room</small></div></div>
+          <div class="g-cell cell" data-index="2"><div class="cell-empty"><span>🍳</span><small>Kitchen</small></div></div>
+          <div class="g-cell wide cell" data-index="3"><div class="cell-empty"><span>🏊</span><small>Pool &amp; lobby</small></div></div>
+          <div class="g-cell cell" data-index="4"><div class="cell-empty"><span>🚿</span><small>Bathroom</small></div></div>
+          <div class="g-cell cell" data-index="5"><div class="cell-empty"><span>🌿</span><small>Balcony</small></div></div>
+          <div class="g-cell cell" data-index="6"><div class="cell-empty"><span>🍽️</span><small>Dining area</small></div></div>
+        </div>
+      </div>
+    </section>
+
+<!-- VIDEO TOUR -->
+<section class="section" id="video">
+  <div class="wrap">
+    <h2>Video tour</h2>
+    <p class="section-sub">See the space before you book — a full walkthrough of the condo.</p>
+
+    <div class="video-wrap" id="videoWrap">
+      <iframe src="https://www.facebook.com/reel/1990886338165181"
+        width="267"
+        height="591"
+        style="border:none;overflow:hidden"
+        scrolling="no"
+        frameborder="0"
+        allowfullscreen="true"
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+    <!-- AMENITIES -->
+    <section class="section" id="amenities">
+      <div class="wrap">
+        <h2>Everything you need, already there</h2>
+        <p class="section-sub">Arrive with just your bags — we've thought of the rest.</p>
+        <div class="tab-bar" role="tablist">
+          <button class="tab-btn active" role="tab" aria-selected="true" data-tab="comfort">Comfort</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="kitchen">Kitchen</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="bathroom">Bathroom</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="building">Building</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="fun">For fun</button>
+        </div>
+        <div class="tab-content">
+          <div class="tab-panel active" id="tab-comfort">
+            <div class="a-item"><span>❄️</span>Air-conditioned unit</div>
+            <div class="a-item"><span>📺</span>50" Smart TV — Netflix &amp; YouTube</div>
+            <div class="a-item"><span>📶</span>High-speed WiFi</div>
+            <div class="a-item"><span>🛏️</span>Full bed + pull-out sofa (sleeps 4)</div>
+            <div class="a-item"><span>🪟</span>Room-darkening curtains</div>
+            <div class="a-item"><span>💨</span>Tower fan + electric fan</div>
+            <div class="a-item"><span>💇</span>Hair dryer, iron &amp; ironing board</div>
+            <div class="a-item"><span>🪞</span>Full-body mirror &amp; dresser</div>
+            <div class="a-item"><span>🧺</span>Laundry basket &amp; extension outlets</div>
+          </div>
+          <div class="tab-panel" id="tab-kitchen">
+            <div class="a-item"><span>🍳</span>Full cookware set (pots, pans, wok)</div>
+            <div class="a-item"><span>🍚</span>Rice cooker</div>
+            <div class="a-item"><span>📦</span>Microwave oven + oven toaster</div>
+            <div class="a-item"><span>🔥</span>Induction cooker + stovetop vent</div>
+            <div class="a-item"><span>☕</span>Kettle with coffee, creamer &amp; sugar</div>
+            <div class="a-item"><span>🧊</span>Refrigerator</div>
+            <div class="a-item"><span>🍽️</span>Full dining ware &amp; wine glasses</div>
+            <div class="a-item"><span>🪑</span>4-seater dining table &amp; tablecloths</div>
+            <div class="a-item"><span>🔪</span>Knife set &amp; cutting boards</div>
+            <div class="a-item"><span>👕</span>Washer + fabric conditioner</div>
+            <div class="a-item"><span>🚒</span>Fire extinguishers &amp; first aid kit</div>
+            <div class="a-item"><span>💧</span>Water gallon rack stand</div>
+          </div>
+          <div class="tab-panel" id="tab-bathroom">
+            <div class="a-item"><span>🚿</span>Hot water shower</div>
+            <div class="a-item"><span>🚽</span>Bidet</div>
+            <div class="a-item"><span>🧴</span>Shampoo, conditioner, body wash</div>
+            <div class="a-item"><span>🪥</span>Dental kit provided</div>
+            <div class="a-item"><span>🏳️</span>Bath &amp; hand towels</div>
+            <div class="a-item"><span>🎨</span>Color-coded face towels</div>
+            <div class="a-item"><span>🧼</span>Handwash soap &amp; cleaning materials</div>
+          </div>
+          <div class="tab-panel" id="tab-building">
+            <div class="a-item"><span>🛡️</span>Manned lobby &amp; 24/7 security</div>
+            <div class="a-item"><span>🛗</span>Elevator access</div>
+            <div class="a-item"><span>🏊</span>Shared outdoor pool</div>
+            <div class="a-item"><span>🅿️</span>Complimentary guest parking</div>
+            <div class="a-item"><span>🔑</span>Self check-in via smartlock</div>
+            <div class="a-item"><span>📹</span>Exterior security cameras</div>
+            <div class="a-item"><span>📞</span>Lobby phone to gate guard</div>
+            <div class="a-item"><span>🏃</span>Walking/jogging path in compound</div>
+          </div>
+          <div class="tab-panel" id="tab-fun">
+            <div class="a-item"><span>🎤</span>Portable karaoke machine</div>
+            <div class="a-item"><span>♟️</span>Chess set</div>
+            <div class="a-item"><span>🎯</span>Sungka (traditional Filipino game)</div>
+            <div class="a-item"><span>🔠</span>Scrabble</div>
+            <div class="a-item"><span>🃏</span>Uno, playing cards &amp; dice</div>
+            <div class="a-item"><span>📚</span>Books — Lola Basyang, Happy Place &amp; more</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="section section-dark" id="reviews">
+      <div class="wrap">
+        <h2>What guests say</h2>
+        <div class="reviews-top">
+          <div class="score-block">
+            <div class="score-big">5.0</div>
+            <div class="score-stars">★★★★★</div>
+            <div class="score-label">Guest Favorite on Airbnb</div>
+            <!-- ← REPLACE XX with your total number of reviews -->
+            <div class="score-total">Based on <strong>XX reviews</strong></div>
+          </div>
+          <div class="score-bars">
+            <div class="bar-row"><span>Cleanliness</span><div class="bar"><div class="bar-fill" style="width:100%"></div></div><span class="bar-val">5.0</span></div>
+            <div class="bar-row"><span>Accuracy</span><div class="bar"><div class="bar-fill" style="width:100%"></div></div><span class="bar-val">5.0</span></div>
+            <div class="bar-row"><span>Check-in</span><div class="bar"><div class="bar-fill" style="width:100%"></div></div><span class="bar-val">5.0</span></div>
+            <div class="bar-row"><span>Communication</span><div class="bar"><div class="bar-fill" style="width:100%"></div></div><span class="bar-val">5.0</span></div>
+            <div class="bar-row"><span>Location</span><div class="bar"><div class="bar-fill" style="width:100%"></div></div><span class="bar-val">5.0</span></div>
+            <div class="bar-row"><span>Value</span><div class="bar"><div class="bar-fill" style="width:100%"></div></div><span class="bar-val">5.0</span></div>
+          </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════
+             HOW TO EDIT REVIEWS:
+             - Change the name inside <div class="rc-name">
+             - Change the text inside <p class="rc-text">
+             - To add a photo: put image in images/ folder then
+               replace data-initials="X" with:
+               <img src="images/guest-name.jpg" alt="Guest name"/>
+             - To add more reviews: copy one full <article> block
+             - To remove a review: delete the full <article> block
+        ══════════════════════════════════════════════════════ -->
+        <div class="reviews-grid">
+
+          <!-- REVIEW 1 — edit name, text, photo -->
+          <article class="review-card">
+            <div class="review-photo" data-initials="J">
+              <!-- ADD PHOTO: <img src="images/review-jo-marie.jpg" alt="Jo Marie"/> -->
+            </div>
+            <div class="rc-top">
+              <div class="rc-name">Jo Marie</div><!-- ← CHANGE NAME HERE -->
+              <div class="rc-stars">★★★★★</div>
+            </div>
+            <p class="rc-text">Stayed a second time — couldn't stay away. Salvacion is warm, kind, and so thoughtful. The unit felt like home the moment we walked in. Spotless and perfectly stocked.</p><!-- ← CHANGE REVIEW TEXT HERE -->
+          </article>
+
+          <!-- REVIEW 2 — edit name, text, photo -->
+          <article class="review-card">
+            <div class="review-photo" data-initials="A">
+              <!-- ADD PHOTO: <img src="images/review-aubrey.jpg" alt="Aubrey Mel"/> -->
+            </div>
+            <div class="rc-top">
+              <div class="rc-name">Aubrey Mel</div><!-- ← CHANGE NAME HERE -->
+              <div class="rc-stars">★★★★★</div>
+            </div>
+            <p class="rc-text">Spotless, well-kept, and incredibly comfortable. The extra touches made such a difference — it's clear the host genuinely cares. Would recommend to anyone visiting Naga.</p><!-- ← CHANGE REVIEW TEXT HERE -->
+          </article>
+
+          <!-- REVIEW 3 — edit name, text, photo -->
+          <article class="review-card">
+            <div class="review-photo" data-initials="W">
+              <!-- ADD PHOTO: <img src="images/review-windelyn.jpg" alt="Windelyn"/> -->
+            </div>
+            <div class="rc-top">
+              <div class="rc-name">Windelyn</div><!-- ← CHANGE NAME HERE -->
+              <div class="rc-stars">★★★★★</div>
+            </div>
+            <p class="rc-text">Everything we needed was already there — games, karaoke, a full kitchen. Loved how thoughtfully the space was set up. We'd come back without question.</p><!-- ← CHANGE REVIEW TEXT HERE -->
+          </article>
+
+          <!-- REVIEW 4 — copy this block to add more reviews -->
+          <!--
+          <article class="review-card">
+            <div class="review-photo" data-initials="X">
+              <img src="images/review-name.jpg" alt="Guest Name"/>
+            </div>
+            <div class="rc-top">
+              <div class="rc-name">Guest Name</div>
+              <div class="rc-stars">★★★★★</div>
+            </div>
+            <p class="rc-text">Your review text here.</p>
+          </article>
+          -->
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BAND -->
+    <section class="cta-band">
+      <div class="wrap cta-in">
+        <div>
+          <h2>Ready to stay at Bluebonnet?</h2>
+          <p>Booking and payment handled securely through Airbnb.</p>
+        </div>
+        <a class="btn btn-gold btn-lg" href="https://www.airbnb.com/rooms/1572517148366114947" target="_blank" rel="noopener">Check availability on Airbnb</a>
+      </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="section" id="location">
+      <div class="wrap location-grid">
+        <div>
+          <h2>Close to everything in Naga</h2>
+          <p>Residencia Magayon puts you right in the heart of the city.</p>
+          <ul class="dist-list">
+            <li><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 1.5A4.5 4.5 0 0 1 12.5 6c0 3-4.5 8.5-4.5 8.5S3.5 9 3.5 6A4.5 4.5 0 0 1 8 1.5z" stroke="currentColor" stroke-width="1.2"/></svg><span>Naga Metropolitan Cathedral</span><span class="dt">5 min walk</span></li>
+            <li><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 1.5A4.5 4.5 0 0 1 12.5 6c0 3-4.5 8.5-4.5 8.5S3.5 9 3.5 6A4.5 4.5 0 0 1 8 1.5z" stroke="currentColor" stroke-width="1.2"/></svg><span>SM City Naga</span><span class="dt">7 min walk</span></li>
+            <li><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 1.5A4.5 4.5 0 0 1 12.5 6c0 3-4.5 8.5-4.5 8.5S3.5 9 3.5 6A4.5 4.5 0 0 1 8 1.5z" stroke="currentColor" stroke-width="1.2"/></svg><span>Robinsons Place Naga</span><span class="dt">16 min walk</span></li>
+            <li><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 1.5A4.5 4.5 0 0 1 12.5 6c0 3-4.5 8.5-4.5 8.5S3.5 9 3.5 6A4.5 4.5 0 0 1 8 1.5z" stroke="currentColor" stroke-width="1.2"/></svg><span>Bicol Medical Center</span><span class="dt">16 min walk</span></li>
+            <li><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 1.5A4.5 4.5 0 0 1 12.5 6c0 3-4.5 8.5-4.5 8.5S3.5 9 3.5 6A4.5 4.5 0 0 1 8 1.5z" stroke="currentColor" stroke-width="1.2"/></svg><span>Naga City Hall</span><span class="dt">10 min walk</span></li>
+            <!-- ← REPLACE XX with actual drive time to airport -->
+            <li><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 1.5A4.5 4.5 0 0 1 12.5 6c0 3-4.5 8.5-4.5 8.5S3.5 9 3.5 6A4.5 4.5 0 0 1 8 1.5z" stroke="currentColor" stroke-width="1.2"/></svg><span>Naga Airport (BCD)</span><span class="dt">~XX min drive</span></li>
+          </ul>
+        </div>
+        <div class="map-wrap">
+          <iframe title="Bluebonnet Condo Naga location" src="https://www.google.com/maps?q=13.6157,123.1924&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOUSE RULES -->
+    <section class="section section-dark" id="rules">
+      <div class="wrap">
+        <h2>House rules</h2>
+        <p class="section-sub">Please read before booking.</p>
+        <div class="rules-grid">
+          <div class="rule-card"><span>🕙</span><strong>Check-in / Check-out</strong><p>Check-in from 3:00 PM · Check-out by 11:00 AM.</p></div>
+          <div class="rule-card"><span>🚭</span><strong>No smoking</strong><p>No smoking inside the unit or on the balcony.</p></div>
+          <div class="rule-card"><span>🐾</span><strong>No pets</strong><p>Pets not permitted inside the unit or compound.</p></div>
+          <div class="rule-card"><span>🔇</span><strong>Quiet hours</strong><p>10:00 PM to 7:00 AM out of respect for neighbors.</p></div>
+          <div class="rule-card"><span>👥</span><strong>4 guests max</strong><p>Unregistered visitors must leave by 10:00 PM.</p></div>
+          <div class="rule-card"><span>🧹</span><strong>Leave it tidy</strong><p>Wash dishes, take out trash before check-out.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO BOOK -->
+    <section class="section section-dark" id="how-to-book">
+      <div class="wrap">
+        <h2>How to book</h2>
+        <p class="section-sub">Booking is done securely through Airbnb — here's how it works.</p>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <strong>Check availability</strong>
+            <p>Click "Book on Airbnb" and pick your dates. You'll see the exact price including all fees before you confirm.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <strong>Send a booking request</strong>
+            <p>Fill in your guest details on Airbnb and send the request. The host will confirm within an hour.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <strong>Pay securely</strong>
+            <p>Payment is processed by Airbnb — credit card, debit card, GCash, and more. Your money is protected by AirCover.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">4</div>
+            <strong>Get your check-in details</strong>
+            <p>After booking, the host will send the smartlock code and full check-in instructions via Airbnb message.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">5</div>
+            <strong>Arrive any time</strong>
+            <p>Self check-in — no need to wait for the host. Just enter the code, drop your bags, and enjoy your stay.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">6</div>
+            <strong>Check out &amp; review</strong>
+            <p>Check out by 11:00 AM. After your stay, leave an honest review — it helps future guests and means a lot to us.</p>
+          </div>
+        </div>
+        <div style="margin-top:40px; text-align:center;">
+          <a class="btn btn-gold btn-lg" href="https://www.airbnb.com/rooms/1572517148366114947" target="_blank" rel="noopener">Book on Airbnb now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="wrap">
+        <h2>Get in touch</h2>
+        <p class="section-sub">Have a question? Reach us any of these ways — we respond quickly.</p>
+
+        <div class="contact-grid">
+
+          <!-- ══════════════════════════════════════
+               EDIT YOUR CONTACT INFO HERE
+               Just change the text/links below
+          ══════════════════════════════════════ -->
+          <div class="contact-info">
+
+            <div class="cinfo-item">
+              <span class="cinfo-icon">📱</span>
+              <div>
+                <strong>Phone / Viber / WhatsApp</strong>
+                <!-- REPLACE: change the number below (both the href and the visible text) -->
+                <a href="tel:+639XXXXXXXXX">+63 9XX XXX XXXX</a>
+              </div>
+            </div>
+
+            <div class="cinfo-item">
+              <span class="cinfo-icon">💬</span>
+              <div>
+                <strong>Facebook Messenger</strong>
+                <a href="https://www.facebook.com/profile.php?id=61584902198196" target="_blank" rel="noopener">Message us on Facebook</a>
+              </div>
+            </div>
+
+            <div class="cinfo-item">
+              <span class="cinfo-icon">📘</span>
+              <div>
+                <strong>Facebook Page</strong>
+                <a href="https://www.facebook.com/profile.php?id=61584902198196" target="_blank" rel="noopener">Bluebonnet Condo Naga</a>
+              </div>
+            </div>
+
+            <div class="cinfo-item">
+              <span class="cinfo-icon">🏠</span>
+              <div>
+                <strong>Address</strong>
+                <span>Residencia Magayon, Naga City,<br>Camarines Sur 4400, Philippines</span>
+              </div>
+            </div>
+
+            <div class="cinfo-item">
+              <span class="cinfo-icon">⏰</span>
+              <div>
+                <strong>Response time</strong>
+                <span>Within 1 hour · 100% response rate</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Booking platforms -->
+          <div>
+            <p style="font-weight:600; color:#2D1B69; margin-bottom:16px; font-size:.95rem;">Book on</p>
+            <div class="platform-cards">
+              <a class="p-card" href="https://www.airbnb.com/rooms/1572517148366114947" target="_blank" rel="noopener">
+                <div class="p-card-top"><span class="p-name">Airbnb</span><span class="p-badge live">Live</span></div>
+                <p>5.0★ Guest Favorite · Secure payment · AirCover guarantee</p>
+                <span class="p-link">Book now →</span>
+              </a>
+              <div class="p-card p-card-off">
+                <div class="p-card-top"><span class="p-name">VRBO</span><span class="p-badge soon">Coming soon</span></div>
+                <p>VRBO listing coming soon. Follow our Facebook page for updates.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer-in">
+
+      <div class="footer-top">
+        <div class="footer-brand">
+          <svg viewBox="0 0 26 26" fill="none" aria-hidden="true">
+            <circle cx="13" cy="13" r="12" fill="#5B3FA6" opacity=".2"/>
+            <path d="M13 3C9.5 3 7 6 7 9.5c0 4.5 6 11.5 6 11.5S19 14 19 9.5C19 6 16.5 3 13 3z" fill="#5B3FA6"/>
+            <circle cx="13" cy="9.5" r="2.5" fill="white"/>
+          </svg>
+          <div>
+            <p class="f-name">Bluebonnet Condo Naga</p>
+            <p class="f-tag">We share the beauty of Bluebonnet with you.</p>
+          </div>
+        </div>
+
+        <!-- ══ FOOTER QUICK CONTACT — edit phone/links here ══ -->
+        <div class="footer-contact">
+          <p style="color:rgba(255,255,255,.5); font-size:.8rem; margin-bottom:10px; max-width:none;">Contact</p>
+          <!-- REPLACE: your phone number -->
+          <a href="tel:+639XXXXXXXXX" class="f-contact-link">📱 +63 9XX XXX XXXX</a>
+          <a href="https://www.facebook.com/profile.php?id=61584902198196" target="_blank" rel="noopener" class="f-contact-link">💬 Facebook Messenger</a>
+          <a href="https://www.airbnb.com/rooms/1572517148366114947" target="_blank" rel="noopener" class="f-contact-link">🏠 Book on Airbnb</a>
+        </div>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer links">
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#video">Video</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#how-to-book">How to Book</a>
+        <a href="#location">Location</a>
+        <a href="#rules">House Rules</a>
+        <a href="#contact">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="privacy.html#terms">Terms of Use</a>
+      </nav>
+
+      <div class="footer-bottom">
+        <p>© <span id="yr"></span> Bluebonnet Condo Naga · Residencia Magayon, Naga City, Camarines Sur 4400, Philippines</p>
+        <p>Booking facilitated through Airbnb. This site is for information only. <a href="privacy.html">Privacy Policy</a> · Compliant with Philippines Data Privacy Act (RA 10173).</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox hidden" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+    <button class="lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+    <div class="lb-wrap" id="lbContent"></div>
+    <button class="lb-next" id="lbNext" aria-label="Next">›</button>
+    <div class="lb-counter" id="lbCounter" aria-live="polite"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
