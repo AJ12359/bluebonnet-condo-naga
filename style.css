@@ -15,7 +15,7 @@
   --rule:    #E8E2F5;
   --white:   #ffffff;
   --bg:      #FAF9FE;
-  --bgdark:  #F7F4FE;
+  --bgdark:  #EDE6FB;
   --night:   #1A1030;
   --serif:   "Playfair Display", Georgia, serif;
   --sans:    "DM Sans", -apple-system, sans-serif;
@@ -92,6 +92,22 @@ h3 { font-size: 1.05rem; font-weight: 600; color: var(--plum); }
 .cell:hover img { transform: scale(1.04); }
 .cell-empty { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: rgba(255,255,255,.3); font-size: .78rem; }
 .cell-empty span { font-size: 2rem; }
+
+/* Icon system — inline SVGs injected by injectIcons(), sized via the
+   existing font-size on each parent selector (kept as an em reference) */
+.feat > span svg,
+.a-item > span svg,
+.rule-card > span svg,
+.cinfo-icon svg,
+.vp-icon svg {
+  width: 1em;
+  height: 1em;
+  stroke-width: 1.8;
+  display: block;
+}
+.f-icon { display: inline-flex; vertical-align: -3px; margin-right: 7px; }
+.f-icon svg { width: 15px; height: 15px; stroke-width: 2; }
+.vp-icon svg { fill: currentColor; stroke: none; }
 
 .hero { background: var(--plum); }
 .photo-strip { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 220px 160px; gap: 3px; position: relative; }
@@ -351,8 +367,16 @@ h3 { font-size: 1.05rem; font-weight: 600; color: var(--plum); }
 .dist-list svg { color: var(--vlight); flex-shrink: 0; }
 .dist-list span { flex: 1; color: var(--ink); }
 .dt  { color: var(--sage); font-weight: 600; font-size: .8rem; flex: none; }
-.map-wrap { border-radius: var(--rr); overflow: hidden; border: 1px solid var(--rule); box-shadow: var(--sh); }
-.map-wrap iframe { width: 100%; height: 340px; border: 0; display: block; }
+.map-wrap { position: relative; border-radius: var(--rr); overflow: hidden; border: 1px solid var(--rule); box-shadow: var(--sh); }
+.map-wrap iframe { width: 100%; height: 340px; border: 0; display: block; filter: grayscale(55%) contrast(1.05) brightness(0.97); }
+.map-chip {
+  position: absolute; top: 14px; left: 14px; z-index: 2;
+  display: flex; align-items: center; gap: 6px;
+  background: var(--white); padding: 7px 12px 7px 9px;
+  border-radius: 999px; box-shadow: var(--sh);
+  font-size: .8rem; font-weight: 600; color: var(--plum);
+}
+.map-chip svg { width: 15px; height: 15px; flex-shrink: 0; }
 
 .rules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
 .rule-card  { padding: 22px; background: var(--white); border-radius: var(--rr); border: 1px solid var(--rule); }
