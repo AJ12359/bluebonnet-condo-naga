@@ -1,19 +1,3 @@
-/* ============================================================
-   BLUEBONNET CONDO NAGA — script.js
-   ============================================================
-
-   STEP 1 — ADD YOUR PHOTOS
-   ─────────────────────────
-   1. Put your image files inside the  images/  folder
-   2. Fill in the src below for each photo
-   3. Save — done. Everything updates automatically.
-
-   Example:
-     src: 'images/bedroom.jpg'
-
-   Leave src: '' if you don't have that photo yet.
-   ============================================================ */
-
 const PHOTOS = [
   { src: 'images/bedroom.jpg', alt: 'Bedroom with double bed and single extension', label: 'Bedroom'     },
   { src: 'images/living-room.avif', alt: 'Living room with 50-inch Smart TV and sofa',   label: 'Living room' },
@@ -25,11 +9,24 @@ const PHOTOS = [
 ];
 
 /* ============================================================
-   REVIEW STATS — edit these numbers whenever Airbnb updates
+   SITE CONFIG — price & other quick facts you'll update often
+   Change the number below, save, push — every element marked
+   [data-price] in index.html updates automatically.
    ============================================================ */
+const SITE_CONFIG = {
+  pricePerNight: 3000,   // ← CHANGE THIS whenever your Airbnb price changes (digits only, no commas)
+  currency: '₱'
+};
+
+function applySiteConfig() {
+  document.querySelectorAll('[data-price]').forEach(el => {
+    el.textContent = SITE_CONFIG.currency + SITE_CONFIG.pricePerNight.toLocaleString('en-US');
+  });
+}
+
 const REVIEWS_CONFIG = {
-  totalReviews: 15,        // ← CHANGE THIS whenever your review count changes
-  overallRating: 5.0,      // ← CHANGE THIS if your overall rating changes
+  totalReviews: 15,
+  overallRating: 5.0,
   categories: {
     cleanliness: 5.0,
     accuracy: 5.0,
@@ -61,26 +58,22 @@ function applyReviewStats() {
   });
 }
 
-/* ── INJECT PHOTOS INTO PAGE ── */
 function injectPhotos() {
-  // All .cell elements with data-index get a photo from PHOTOS
   document.querySelectorAll('.cell[data-index]').forEach(cell => {
     const i = parseInt(cell.dataset.index);
     const photo = PHOTOS[i];
-    if (!photo || !photo.src) return; // no photo yet — leave placeholder
+    if (!photo || !photo.src) return;
 
-    // Replace empty placeholder with real image
     const img = document.createElement('img');
     img.src     = photo.src;
     img.alt     = photo.alt;
     img.loading = i === 0 ? 'eager' : 'lazy';
     img.decoding = 'async';
 
-    cell.innerHTML = ''; // remove placeholder text
+    cell.innerHTML = '';
     cell.appendChild(img);
   });
 
-  // Gallery cells — make clickable
   document.querySelectorAll('#galleryGrid .g-cell').forEach(cell => {
     const i = parseInt(cell.dataset.index);
     cell.addEventListener('click', () => openLightbox(i));
@@ -92,20 +85,17 @@ function injectPhotos() {
     });
   });
 
-  // Hero strip cells — make clickable
   document.querySelectorAll('.photo-strip .cell').forEach(cell => {
     const i = parseInt(cell.dataset.index);
     cell.addEventListener('click', () => openLightbox(i));
   });
 
-  // About section cells
   document.querySelectorAll('.about-photos .cell').forEach(cell => {
     const i = parseInt(cell.dataset.index);
     cell.addEventListener('click', () => openLightbox(i));
   });
 }
 
-/* ── LIGHTBOX ── */
 let currentIndex = 0;
 let prevFocus    = null;
 
@@ -151,7 +141,6 @@ function renderSlide(index) {
   if (counter) counter.textContent = (index + 1) + ' / ' + PHOTOS.length;
 }
 
-// Lightbox controls
 document.getElementById('lbClose').addEventListener('click', closeLightbox);
 document.getElementById('lbPrev').addEventListener('click',  () => navigate(-1));
 document.getElementById('lbNext').addEventListener('click',  () => navigate(1));
@@ -166,22 +155,18 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight')  navigate(1);
 });
 
-/* ── AMENITY TABS ── */
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    // Deactivate all
     document.querySelectorAll('.tab-btn').forEach(b => {
       b.classList.remove('active');
       b.setAttribute('aria-selected', 'false');
     });
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    // Activate clicked
     btn.classList.add('active');
     btn.setAttribute('aria-selected', 'true');
     const panel = document.getElementById('tab-' + btn.dataset.tab);
     if (panel) panel.classList.add('active');
   });
-  // Keyboard navigation between tabs
   btn.addEventListener('keydown', e => {
     const all = [...document.querySelectorAll('.tab-btn')];
     const i   = all.indexOf(btn);
@@ -190,7 +175,6 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
   });
 });
 
-/* ── MOBILE NAV ── */
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('navLinks');
 
@@ -216,13 +200,11 @@ document.addEventListener('click', e => {
   }
 });
 
-/* ── SCROLL SHADOW ON NAV ── */
 const nav = document.getElementById('siteNav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 10);
 }, { passive: true });
 
-/* ── COOKIE CONSENT ── */
 const cookieBanner = document.getElementById('cookieBanner');
 if (!localStorage.getItem('bb_consent')) {
   setTimeout(() => cookieBanner.classList.add('show'), 1400);
@@ -236,9 +218,8 @@ document.getElementById('ckDecline').addEventListener('click', () => {
   cookieBanner.classList.remove('show');
 });
 
-/* ── FOOTER YEAR (auto-updates every year) ── */
 document.getElementById('yr').textContent = new Date().getFullYear();
 
-/* ── START ── */
 injectPhotos();
 applyReviewStats();
+applySiteConfig();
