@@ -297,7 +297,7 @@ h3 { font-size: 1.05rem; font-weight: 600; color: var(--plum); }
 .f-contact-link { font-size: .85rem; color: rgba(255,255,255,.6); transition: color .15s; text-decoration: none; }
 .f-contact-link:hover { color: var(--white); }
 
-.contact-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 52px; }
+.contact-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 52px; align-items: start; }
 
 .tab-bar { display: flex; gap: 2px; border-bottom: 2px solid var(--rule); overflow-x: auto; scrollbar-width: none; }
 .tab-bar::-webkit-scrollbar { display: none; }
