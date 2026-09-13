@@ -24,6 +24,43 @@ const PHOTOS = [
   { src: 'images/dining.avif', alt: 'Dining area with 4-seater table',             label: 'Dining area' },
 ];
 
+/* ============================================================
+   REVIEW STATS — edit these numbers whenever Airbnb updates
+   ============================================================ */
+const REVIEWS_CONFIG = {
+  totalReviews: 15,        // ← CHANGE THIS whenever your review count changes
+  overallRating: 5.0,      // ← CHANGE THIS if your overall rating changes
+  categories: {
+    cleanliness: 5.0,
+    accuracy: 5.0,
+    checkin: 5.0,
+    communication: 5.0,
+    location: 5.0,
+    value: 5.0
+  }
+};
+
+function applyReviewStats() {
+  document.querySelectorAll('[data-review-count]').forEach(el => {
+    el.textContent = REVIEWS_CONFIG.totalReviews;
+  });
+  document.querySelectorAll('[data-review-count-plus]').forEach(el => {
+    el.textContent = REVIEWS_CONFIG.totalReviews + '+';
+  });
+  document.querySelectorAll('[data-overall-rating]').forEach(el => {
+    el.textContent = REVIEWS_CONFIG.overallRating.toFixed(1);
+  });
+  document.querySelectorAll('[data-cat-bar]').forEach(el => {
+    const cat = el.getAttribute('data-cat-bar');
+    const val = REVIEWS_CONFIG.categories[cat];
+    if (val != null) {
+      el.style.width = (val / 5 * 100) + '%';
+      const valEl = el.closest('.bar-row')?.querySelector('.bar-val');
+      if (valEl) valEl.textContent = val.toFixed(1);
+    }
+  });
+}
+
 /* ── INJECT PHOTOS INTO PAGE ── */
 function injectPhotos() {
   // All .cell elements with data-index get a photo from PHOTOS
@@ -204,3 +241,4 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 
 /* ── START ── */
 injectPhotos();
+applyReviewStats();
